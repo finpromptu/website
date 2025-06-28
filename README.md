@@ -2,7 +2,8 @@
 
 Modern, Apple-style website for Finpromptu showcasing cloud governance and AI integration services.
 
-🌐 **Live Site**: https://finpromptu.com  
+🌐 **Production**: https://finpromptu.com  
+🚧 **Staging**: https://dev.finpromptu.com  
 📦 **Repository**: https://github.com/finpromptu/website
 
 ## Quick Start
@@ -40,11 +41,19 @@ npm run build
 
 ## Automated Deployment
 
+### Production Environment
 Every push to `main` branch automatically:
 1. Builds the Next.js application
-2. Deploys to S3 bucket
-3. Invalidates CloudFront cache
-4. Updates live website
+2. Deploys to S3 bucket `finpromptu.com`
+3. Invalidates CloudFront cache (EMP2ELOJJSHZ8)
+4. Updates live website at https://finpromptu.com
+
+### Development Environment  
+Every push to `dev` branch automatically:
+1. Builds the Next.js application
+2. Deploys to S3 bucket `dev.finpromptu.com`
+3. Invalidates CloudFront cache (EAYJPX4TO0TVT)
+4. Updates staging website at https://dev.finpromptu.com
 
 ### GitHub Secrets Required
 - `AWS_ACCESS_KEY_ID`
@@ -110,13 +119,28 @@ Every push to `main` branch automatically:
 
 ## Development Workflow
 
+### Feature Development
 1. **Local Development**: `npm run dev`
 2. **Create Feature Branch**: `git checkout -b feature/new-page`
 3. **Make Changes**: Edit components, pages, styles
 4. **Test Locally**: Verify functionality and design
 5. **Commit & Push**: `git push origin feature/new-page`
-6. **Create PR**: GitHub will auto-deploy on merge to main
-7. **Automatic Deployment**: Live in minutes
+6. **Create PR to Dev**: Merge feature branch to `dev` for staging
+7. **Review on Staging**: Test at https://dev.finpromptu.com
+8. **Create PR to Main**: Merge `dev` to `main` for production
+9. **Automatic Deployment**: Live at https://finpromptu.com in minutes
+
+### Environment Flow
+```
+feature/branch → dev → main
+     ↓           ↓      ↓
+   local    staging  production
+```
+
+### Branch Strategy
+- `main` - Production environment (https://finpromptu.com)
+- `dev` - Staging environment (https://dev.finpromptu.com)  
+- `feature/*` - Feature branches for development
 
 ## Performance
 
