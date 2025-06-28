@@ -2,9 +2,9 @@ name: Deploy to AWS S3
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, master, dev ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main, master, dev ]
   workflow_dispatch:
 
 jobs:
@@ -34,19 +34,34 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
+    - name: Set environment variables
+      run: |
+        if [ "${{ github.ref }}" = "refs/heads/dev" ]; then
+          echo "BUCKET_NAME=dev.finpromptu.com" >> $GITHUB_ENV
+          echo "CLOUDFRONT_ID=PLACEHOLDER_DEV_ID" >> $GITHUB_ENV
+          echo "ENVIRONMENT=dev" >> $GITHUB_ENV
+        else
+          echo "BUCKET_NAME=finpromptu.com" >> $GITHUB_ENV
+          echo "CLOUDFRONT_ID=EMP2ELOJJSHZ8" >> $GITHUB_ENV
+          echo "ENVIRONMENT=prod" >> $GITHUB_ENV
+        fi
+
     - name: Deploy to S3
       run: |
+        echo "Deploying to $ENVIRONMENT environment"
+        echo "Bucket: $BUCKET_NAME"
+        
         # Create S3 bucket if it doesn't exist
-        aws s3 mb s3://finpromptu.com --region us-east-1 2>/dev/null || echo "Bucket already exists"
+        aws s3 mb s3://$BUCKET_NAME --region us-east-1 2>/dev/null || echo "Bucket already exists"
         
         # Configure public access
         aws s3api put-public-access-block \
-            --bucket finpromptu.com \
+            --bucket $BUCKET_NAME \
             --public-access-block-configuration \
             "BlockPublicAcls=false,IgnorePublicAcls=false,BlockPublicPolicy=false,RestrictPublicBuckets=false"
         
         # Configure static website hosting
-        aws s3 website s3://finpromptu.com --index-document index.html --error-document index.html
+        aws s3 website s3://$BUCKET_NAME --index-document index.html --error-document index.html
         
         # Set bucket policy for public read access
         cat > bucket-policy.json << EOF
@@ -58,18 +73,22 @@ jobs:
                     "Effect": "Allow",
                     "Principal": "*",
                     "Action": "s3:GetObject",
-                    "Resource": "arn:aws:s3:::finpromptu.com/*"
+                    "Resource": "arn:aws:s3:::$BUCKET_NAME/*"
                 }
             ]
         }
         EOF
         
-        aws s3api put-bucket-policy --bucket finpromptu.com --policy file://bucket-policy.json
+        aws s3api put-bucket-policy --bucket $BUCKET_NAME --policy file://bucket-policy.json
         
         # Upload the built website
-        aws s3 sync dist/ s3://finpromptu.com --delete
+        aws s3 sync dist/ s3://$BUCKET_NAME --delete
 
     - name: Invalidate CloudFront cache
       run: |
-        echo "Invalidating CloudFront distribution: EMP2ELOJJSHZ8"
-        aws cloudfront create-invalidation --distribution-id EMP2ELOJJSHZ8 --paths "/*"
+        if [ "$CLOUDFRONT_ID" != "PLACEHOLDER_DEV_ID" ]; then
+          echo "Invalidating CloudFront distribution: $CLOUDFRONT_ID"
+          aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID --paths "/*"
+        else
+          echo "Dev CloudFront distribution not yet created - skipping invalidation"
+        fi
