@@ -38,16 +38,18 @@ export default function AIServicesPage() {
               we help SMBs leverage AI to compete with enterprise-level efficiency.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-700 text-white">
-                <Link href="/contact">
-                  Free AI Assessment <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white">
-                <Link href="/contact">
-                  View Case Studies
-                </Link>
-              </Button>
+              <Link 
+                href="/contact"
+                className="inline-flex items-center justify-center h-11 px-8 rounded-md text-sm font-medium bg-purple-600 text-white hover:bg-purple-700 transition-colors"
+              >
+                Free AI Assessment <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+              <Link 
+                href="/contact"
+                className="inline-flex items-center justify-center h-11 px-8 rounded-md text-sm font-medium border border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors"
+              >
+                View Case Studies
+              </Link>
             </div>
           </div>
         </div>
