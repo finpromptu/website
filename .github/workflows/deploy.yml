@@ -38,7 +38,7 @@ jobs:
       run: |
         if [ "${{ github.ref }}" = "refs/heads/dev" ]; then
           echo "BUCKET_NAME=dev.finpromptu.com" >> $GITHUB_ENV
-          echo "CLOUDFRONT_ID=PLACEHOLDER_DEV_ID" >> $GITHUB_ENV
+          echo "CLOUDFRONT_ID=EAYJPX4TO0TVT" >> $GITHUB_ENV
           echo "ENVIRONMENT=dev" >> $GITHUB_ENV
         else
           echo "BUCKET_NAME=finpromptu.com" >> $GITHUB_ENV
