@@ -46,7 +46,7 @@ export default function AIServicesPage() {
               </Link>
               <Link 
                 href="/contact"
-                className="inline-flex items-center justify-center h-11 px-8 rounded-md text-sm font-medium border border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors"
+                className="inline-flex items-center justify-center h-11 px-8 rounded-md text-sm font-medium border-2 border-white text-white hover:bg-white hover:text-purple-600 transition-colors"
               >
                 View Case Studies
               </Link>
@@ -520,7 +520,7 @@ export default function AIServicesPage() {
             </Link>
             <Link 
               href="/contact" 
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 rounded-md px-8 text-white border-white hover:bg-white hover:text-purple-600"
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-gray-300 bg-white text-gray-900 hover:bg-gray-50 h-11 rounded-md px-8 text-white border-white hover:bg-white hover:text-purple-600"
             >
               Schedule Consultation
             </Link>
