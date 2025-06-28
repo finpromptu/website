@@ -69,14 +69,7 @@ jobs:
         # Upload the built website
         aws s3 sync dist/ s3://finpromptu.com --delete
 
-    - name: Invalidate CloudFront (if distribution exists)
+    - name: Invalidate CloudFront cache
       run: |
-        # Get CloudFront distribution ID for finpromptu.com
-        DISTRIBUTION_ID=$(aws cloudfront list-distributions --query "DistributionList.Items[?Aliases.Items[0]=='finpromptu.com'].Id" --output text 2>/dev/null || echo "")
-        
-        if [ ! -z "$DISTRIBUTION_ID" ] && [ "$DISTRIBUTION_ID" != "None" ]; then
-          echo "Invalidating CloudFront distribution: $DISTRIBUTION_ID"
-          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
-        else
-          echo "No CloudFront distribution found for finpromptu.com"
-        fi
+        echo "Invalidating CloudFront distribution: EMP2ELOJJSHZ8"
+        aws cloudfront create-invalidation --distribution-id EMP2ELOJJSHZ8 --paths "/*"
