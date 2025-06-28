@@ -2,6 +2,7 @@ import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, Cloud, Zap, Shield, TrendingUp, Users, Bot } from 'lucide-react'
 
 export default function HomePage() {
@@ -46,10 +47,15 @@ export default function HomePage() {
             {/* GovernIQ */}
             <Card className="p-8 hover:shadow-lg transition-shadow">
               <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Cloud className="h-8 w-8 text-blue-600" />
+                <div className="mx-auto mb-4">
+                  <Image 
+                    src="/images/governiq-logo.png" 
+                    alt="GovernIQ Logo" 
+                    width={200} 
+                    height={60}
+                    className="mx-auto"
+                  />
                 </div>
-                <CardTitle className="text-3xl">GovernIQ</CardTitle>
                 <CardDescription className="text-lg">
                   Enterprise Cloud Governance Platform
                 </CardDescription>

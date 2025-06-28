@@ -2,6 +2,7 @@ import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Link from 'next/link'
+import Image from 'next/image'
 import { 
   ArrowRight, 
   Cloud, 
@@ -26,9 +27,16 @@ export default function GovernIQPage() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
-              <span className="text-blue-600">GovernIQ</span>
-              <br />
+            <div className="mb-8">
+              <Image 
+                src="/images/governiq-logo.png" 
+                alt="GovernIQ Logo" 
+                width={400} 
+                height={120}
+                className="mx-auto"
+              />
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
               Cloud Governance Platform
             </h1>
             <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
