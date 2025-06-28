@@ -7,6 +7,10 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Finpromptu - Cloud Governance & AI Integration',
   description: 'GovernIQ cloud governance platform and AI integration services for small and medium businesses.',
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({
