@@ -29,14 +29,8 @@ npm run dev
 # Build for production
 npm run build
 
-# Deploy to AWS S3
-./deploy.sh
-
-# Setup SSL certificate
-./setup-ssl.sh
-
-# Create CloudFront distribution
-./create-cloudfront.sh
+# Static export for AWS deployment
+npm run export
 ```
 
 ## Automated Deployment
@@ -71,11 +65,7 @@ Every push to `dev` branch automatically:
 ├── src/components/         # Reusable UI components
 │   ├── navigation.tsx      # Site navigation
 │   └── ui/                 # shadcn/ui components
-├── .github/workflows/      # GitHub Actions CI/CD
-├── deploy.sh              # S3 deployment script
-├── setup-ssl.sh           # SSL certificate setup
-├── create-cloudfront.sh   # CloudFront distribution
-└── setup-domain.sh        # Custom domain configuration
+└── .github/workflows/      # GitHub Actions CI/CD
 ```
 
 ## Technology Stack
