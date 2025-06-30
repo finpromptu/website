@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { config } from '@/lib/config'
 import Link from 'next/link'
 import { 
   Mail, 
@@ -15,22 +16,68 @@ import {
   MessageSquare,
   Building,
   Bot,
-  CheckCircle
+  CheckCircle,
+  AlertCircle
 } from 'lucide-react'
 
 export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError(null)
     
-    // Simulate form processing
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    setIsSubmitted(true)
-    setIsSubmitting(false)
+    try {
+      const formData = new FormData(e.currentTarget)
+      const data = {
+        name: formData.get('name') as string,
+        email: formData.get('email') as string,
+        company: formData.get('company') as string,
+        service: formData.get('service') as string,
+        message: formData.get('body') as string
+      }
+
+      if (config.debug) {
+        console.log('Submitting contact form:', data)
+      }
+
+      // Check if API endpoint is configured
+      if (config.contactApiUrl.includes('your-api-id')) {
+        // Fallback mode - API not configured yet
+        console.warn('Contact API not configured. Using simulation mode.')
+        await new Promise(resolve => setTimeout(resolve, 1000)) // Simulate delay
+        setIsSubmitted(true)
+        return
+      }
+
+      const response = await fetch(config.contactApiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message')
+      }
+
+      if (config.debug) {
+        console.log('Contact form submitted successfully:', result)
+      }
+
+      setIsSubmitted(true)
+    } catch (err) {
+      console.error('Error submitting contact form:', err)
+      setError(err instanceof Error ? err.message : 'Failed to send message. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -60,15 +107,29 @@ export default function ContactPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
+                {error && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <div className="flex items-center">
+                      <AlertCircle className="h-5 w-5 text-red-500 mr-2" />
+                      <h4 className="text-sm font-medium text-red-800">Error sending message</h4>
+                    </div>
+                    <p className="mt-1 text-sm text-red-700">{error}</p>
+                  </div>
+                )}
+                
                 {isSubmitted ? (
                   <div className="text-center py-8">
                     <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-2">Message Sent Successfully!</h3>
                     <p className="text-gray-600 mb-4">
-                      Thank you for your inquiry. We&apos;ll get back to you within 24 hours.
+                      Thank you for your inquiry. You should receive a confirmation email shortly, 
+                      and we&apos;ll get back to you within 24 hours.
                     </p>
                     <Button 
-                      onClick={() => setIsSubmitted(false)}
+                      onClick={() => {
+                        setIsSubmitted(false)
+                        setError(null)
+                      }}
                       variant="outline"
                     >
                       Send Another Message
