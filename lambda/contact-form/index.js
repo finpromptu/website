@@ -2,11 +2,12 @@ const AWS = require('aws-sdk');
 const ses = new AWS.SES({ region: process.env.AWS_REGION || 'us-east-1' });
 
 exports.handler = async (event) => {
-    // Enable CORS
+    // Enable CORS with comprehensive headers
     const headers = {
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+        'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
+        'Access-Control-Max-Age': '86400',
         'Content-Type': 'application/json'
     };
 
