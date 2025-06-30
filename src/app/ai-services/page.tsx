@@ -45,7 +45,7 @@ export default function AIServicesPage() {
                 Free AI Assessment <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
               <Link 
-                href="/contact"
+                href="#success-stories"
                 className="inline-flex items-center justify-center h-11 px-8 rounded-md text-sm font-medium border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors"
               >
                 View Case Studies
@@ -457,7 +457,7 @@ export default function AIServicesPage() {
       </section>
 
       {/* Success Stories */}
-      <section className="py-20">
+      <section id="success-stories" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">

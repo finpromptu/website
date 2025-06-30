@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -11,10 +14,25 @@ import {
   Clock,
   MessageSquare,
   Building,
-  Bot
+  Bot,
+  CheckCircle
 } from 'lucide-react'
 
 export default function ContactPage() {
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    
+    // Simulate form processing
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    
+    setIsSubmitted(true)
+    setIsSubmitting(false)
+  }
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -42,7 +60,22 @@ export default function ContactPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <form className="space-y-6" action="mailto:info@finpromptu.com" method="get">
+                {isSubmitted ? (
+                  <div className="text-center py-8">
+                    <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
+                    <p className="text-gray-600 mb-4">
+                      Thank you for your inquiry. We&apos;ll get back to you within 24 hours.
+                    </p>
+                    <Button 
+                      onClick={() => setIsSubmitted(false)}
+                      variant="outline"
+                    >
+                      Send Another Message
+                    </Button>
+                  </div>
+                ) : (
+                  <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -114,8 +147,12 @@ export default function ContactPage() {
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-4">
-                    <Button type="submit" className="w-full">
-                      Send Email
+                    <Button 
+                      type="submit" 
+                      className="w-full"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                     </Button>
                     <Link 
                       href="tel:+15122227896"
@@ -125,6 +162,7 @@ export default function ContactPage() {
                     </Link>
                   </div>
                 </form>
+                )}
               </CardContent>
             </Card>
 
