@@ -26,6 +26,11 @@ Implementation plan for 13 feedback items from 6/28/25 Website Feedback document
 - **Status**: ✅ Completed
 - **Fix**: Changed from `border-white text-white` to `border-purple-600 text-purple-600` for visibility on white background
 
+#### Additional Button Fixes Found
+- **About Page**: "Schedule a Call" button - Fixed same CSS conflict issue
+- **GovernIQ Page**: "MSP Partnership Inquiry" button - Fixed same CSS conflict issue
+- **Status**: ✅ Completed
+
 ### Phase 2: Contact Page Overhaul  
 **Priority: HIGH**
 
