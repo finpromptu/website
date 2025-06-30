@@ -19,6 +19,9 @@ export function Navigation() {
             <Link href="/ai-services/" className="text-gray-600 hover:text-gray-900 transition-colors">
               AI Services
             </Link>
+            <Link href="/industries/" className="text-gray-600 hover:text-gray-900 transition-colors">
+              Industries
+            </Link>
             <Link href="/about/" className="text-gray-600 hover:text-gray-900 transition-colors">
               About
             </Link>
