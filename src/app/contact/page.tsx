@@ -87,9 +87,15 @@ export default function ContactPage() {
         throw new Error(result.error || result.message || 'Failed to send message')
       }
 
-      console.log('Contact form submitted successfully:', result)
-
-      setIsSubmitted(true)
+      // Check if result indicates success
+      if (result.success === true || result.message === 'Contact form submitted successfully') {
+        console.log('Contact form submitted successfully:', result)
+        setIsSubmitted(true)
+      } else {
+        // Handle case where response is OK but doesn't indicate success
+        console.warn('Unexpected success response format:', result)
+        setIsSubmitted(true) // Still treat as success since response was OK
+      }
     } catch (err) {
       console.error('Error submitting contact form:', err)
       setError(err instanceof Error ? err.message : 'Failed to send message. Please try again.')
