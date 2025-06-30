@@ -45,4 +45,6 @@ coverage/
 
 # Temporary files
 tmp/
-temp/
+temp/lambda/contact-form-deployment.zip
+lambda/contact-form.zip
+lambda/contact-form/package-lock.json
