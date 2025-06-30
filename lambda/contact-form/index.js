@@ -167,11 +167,17 @@ Phone: (512) 222-7896 | Email: info@finpromptu.com
             Source: process.env.FROM_EMAIL || 'noreply@finpromptu.com'
         };
 
-        // Send both emails
-        await Promise.all([
-            ses.sendEmail(notificationParams).promise(),
-            ses.sendEmail(autoReplyParams).promise()
-        ]);
+        // Send notification email (always works with verified sender)
+        await ses.sendEmail(notificationParams).promise();
+        
+        // Try to send auto-reply, but don't fail if recipient is unverified (SES sandbox mode)
+        try {
+            await ses.sendEmail(autoReplyParams).promise();
+            console.log('Auto-reply sent successfully');
+        } catch (autoReplyError) {
+            console.warn('Auto-reply failed (likely SES sandbox - unverified recipient):', autoReplyError.message);
+            // Don't throw error - notification email was successful
+        }
 
         return {
             statusCode: 200,
