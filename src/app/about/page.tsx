@@ -289,7 +289,7 @@ export default function AboutPage() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="font-semibold text-lg mb-2">AWS Partners</h3>
+              <h3 className="font-semibold text-lg mb-2">AWS Expertise</h3>
               <p className="text-gray-600 text-sm">Certified cloud solution architects and specialists</p>
             </div>
 
