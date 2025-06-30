@@ -118,10 +118,10 @@ export default function ContactPage() {
                       Send Email
                     </Button>
                     <Link 
-                      href="tel:+15551234567"
+                      href="tel:+15122227896"
                       className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-gray-300 bg-white text-gray-900 hover:bg-gray-50 h-10 px-4 py-2"
                     >
-                      Call Us: (555) 123-4567
+                      Call Us: (512) 222-7896
                     </Link>
                   </div>
                 </form>
@@ -146,8 +146,8 @@ export default function ContactPage() {
                   </div>
                   <div className="flex items-center space-x-3">
                     <Phone className="h-5 w-5 text-blue-600" />
-                    <Link href="tel:+15551234567" className="hover:text-blue-600">
-                      +1 (555) 123-4567
+                    <Link href="tel:+15122227896" className="hover:text-blue-600">
+                      +1 (512) 222-7896
                     </Link>
                   </div>
                   <div className="flex items-center space-x-3">
@@ -156,7 +156,7 @@ export default function ContactPage() {
                   </div>
                   <div className="flex items-center space-x-3">
                     <Clock className="h-5 w-5 text-blue-600" />
-                    <span>Mon-Fri: 9:00 AM - 6:00 PM EST</span>
+                    <span>Mon-Fri: 8:00 AM - 5:00 PM CST</span>
                   </div>
                 </CardContent>
               </Card>
@@ -169,27 +169,27 @@ export default function ContactPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="flex items-center space-x-3">
+                  <Link href="/governiq" className="flex items-center space-x-3 hover:bg-gray-50 p-2 rounded-lg transition-colors">
                     <Building className="h-5 w-5 text-blue-600" />
                     <div>
-                      <p className="font-medium">GovernIQ Demo</p>
+                      <p className="font-medium hover:text-blue-600">GovernIQ Demo</p>
                       <p className="text-sm text-gray-600">Schedule a demo of our cloud governance platform</p>
                     </div>
-                  </div>
-                  <div className="flex items-center space-x-3">
+                  </Link>
+                  <Link href="/ai-services" className="flex items-center space-x-3 hover:bg-gray-50 p-2 rounded-lg transition-colors">
                     <Bot className="h-5 w-5 text-purple-600" />
                     <div>
-                      <p className="font-medium">AI Assessment</p>
+                      <p className="font-medium hover:text-purple-600">AI Assessment</p>
                       <p className="text-sm text-gray-600">Free AI readiness assessment for your business</p>
                     </div>
-                  </div>
-                  <div className="flex items-center space-x-3">
+                  </Link>
+                  <Link href="/contact" className="flex items-center space-x-3 hover:bg-gray-50 p-2 rounded-lg transition-colors">
                     <MessageSquare className="h-5 w-5 text-green-600" />
                     <div>
-                      <p className="font-medium">MSP Partnership</p>
+                      <p className="font-medium hover:text-green-600">MSP Partnership</p>
                       <p className="text-sm text-gray-600">Learn about our partner program benefits</p>
                     </div>
-                  </div>
+                  </Link>
                 </CardContent>
               </Card>
 

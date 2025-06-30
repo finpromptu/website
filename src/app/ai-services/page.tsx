@@ -297,12 +297,50 @@ export default function AIServicesPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Lite Package */}
+            <Card className="p-8 hover:shadow-lg transition-shadow">
+              <CardHeader className="text-center">
+                <CardTitle className="text-2xl mb-2">Lite</CardTitle>
+                <CardDescription className="text-lg">Essential AI tools for getting started</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="text-center">
+                  <span className="text-3xl font-bold">$1,695</span>
+                  <span className="text-gray-600">/month</span>
+                </div>
+                <ul className="space-y-2">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-4 w-4 text-green-500" />
+                    <span>AI chatbot implementation</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-4 w-4 text-green-500" />
+                    <span>Email automation</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-4 w-4 text-green-500" />
+                    <span>Basic setup & training</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-4 w-4 text-green-500" />
+                    <span>Email support</span>
+                  </li>
+                </ul>
+                <Link 
+                  href="/contact"
+                  className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
+                >
+                  Get Started
+                </Link>
+              </CardContent>
+            </Card>
+
             {/* Starter Package */}
             <Card className="p-8 hover:shadow-lg transition-shadow">
               <CardHeader className="text-center">
                 <CardTitle className="text-2xl mb-2">Starter</CardTitle>
-                <CardDescription className="text-lg">Perfect for small businesses just starting with AI</CardDescription>
+                <CardDescription className="text-lg">Perfect for small businesses expanding with AI</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="text-center">
@@ -312,11 +350,11 @@ export default function AIServicesPage() {
                 <ul className="space-y-2">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Basic chatbot implementation</span>
+                    <span>Enhanced chatbot & email automation</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Email automation setup</span>
+                    <span>Lead scoring & nurturing</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-green-500" />
@@ -324,7 +362,7 @@ export default function AIServicesPage() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Basic training & support</span>
+                    <span>Phone & email support</span>
                   </li>
                 </ul>
                 <Link 
@@ -354,10 +392,6 @@ export default function AIServicesPage() {
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-green-500" />
                     <span>Advanced customer service automation</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Marketing automation & lead scoring</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-green-500" />
@@ -403,10 +437,6 @@ export default function AIServicesPage() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Advanced integrations</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
                     <span>Dedicated account manager</span>
                   </li>
                   <li className="flex items-center space-x-2">
@@ -436,6 +466,9 @@ export default function AIServicesPage() {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               See how other small businesses have transformed their operations with AI
             </p>
+            <p className="text-sm text-gray-500 mt-4">
+              Client names changed for confidentiality. References available upon request.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -446,8 +479,8 @@ export default function AIServicesPage() {
                     <MessageSquare className="h-6 w-6 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg">Local Insurance Agency</h3>
-                    <p className="text-gray-600">50 employees</p>
+                    <h3 className="font-semibold text-lg">Regional Insurance Agency</h3>
+                    <p className="text-gray-600">50 employees | Insurance Industry</p>
                   </div>
                 </div>
                 <p className="text-gray-700 mb-4">
@@ -476,8 +509,8 @@ export default function AIServicesPage() {
                     <BarChart3 className="h-6 w-6 text-purple-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg">E-commerce Retailer</h3>
-                    <p className="text-gray-600">25 employees</p>
+                    <h3 className="font-semibold text-lg">Online Retailer</h3>
+                    <p className="text-gray-600">25 employees | E-commerce</p>
                   </div>
                 </div>
                 <p className="text-gray-700 mb-4">
