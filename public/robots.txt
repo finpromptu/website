@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://finpromptu.com/sitemap.xml
+Sitemap: https://dev.finpromptu.com/sitemap.xml
+
+# Block crawling of API endpoints
+Disallow: /api/ 

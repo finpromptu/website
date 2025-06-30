@@ -20,6 +20,11 @@ import {
   AlertCircle
 } from 'lucide-react'
 
+// SEO Note: This page needs metadata in a parent layout or separate metadata file
+// Recommended metadata:
+// title: 'Contact Finpromptu | Cloud Governance & AI Integration Experts'
+// description: 'Get in touch with Finpromptu for cloud governance solutions or AI integration services. Call (512) 222-7896 or request a demo. Response within 24 hours.'
+
 export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)

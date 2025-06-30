@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -18,6 +19,34 @@ import {
   Clock,
   DollarSign
 } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'AI Integration Services for Small Business Automation',
+  description: 'Transform your SMB with AI automation: customer service chatbots, marketing automation, process optimization. Starting at $1,695/month with proven ROI.',
+  keywords: [
+    'AI integration services',
+    'small business automation',
+    'AI chatbots',
+    'marketing automation', 
+    'customer service automation',
+    'business process automation',
+    'SMB AI solutions',
+    'artificial intelligence consulting'
+  ],
+  openGraph: {
+    title: 'AI Integration Services for Small Business Automation',
+    description: 'Transform your SMB with AI automation: customer service chatbots, marketing automation, process optimization. Starting at $1,695/month.',
+    url: '/ai-services',
+    type: 'website',
+  },
+  twitter: {
+    title: 'AI Integration Services for Small Business Automation',
+    description: 'Transform your SMB with AI automation: customer service chatbots, marketing automation, process optimization. Starting at $1,695/month.',
+  },
+  alternates: {
+    canonical: '/ai-services',
+  },
+}
 
 export default function AIServicesPage() {
   return (

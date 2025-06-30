@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import { Navigation } from '@/components/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -16,6 +17,36 @@ import {
   Settings,
   Eye
 } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'GovernIQ - Cloud Governance Platform | Reduce Cloud Costs 15-30%',
+  description: 'Enterprise cloud governance platform that reduces AWS, Azure & GCP costs by 15-30%. Built for MSPs with 30% commission on verified savings. Request demo today.',
+  keywords: [
+    'cloud governance',
+    'cloud cost optimization',
+    'GovernIQ',
+    'AWS cost reduction',
+    'Azure cost optimization',
+    'GCP governance',
+    'MSP cloud services',
+    'cloud custodian',
+    'multi-cloud governance',
+    'enterprise cloud management'
+  ],
+  openGraph: {
+    title: 'GovernIQ - Cloud Governance Platform | Reduce Cloud Costs 15-30%',
+    description: 'Enterprise cloud governance platform that reduces AWS, Azure & GCP costs by 15-30%. Built for MSPs with 30% commission on verified savings.',
+    url: '/governiq',
+    type: 'website',
+  },
+  twitter: {
+    title: 'GovernIQ - Cloud Governance Platform | Reduce Cloud Costs 15-30%',
+    description: 'Enterprise cloud governance platform that reduces AWS, Azure & GCP costs by 15-30%. Built for MSPs with 30% commission on verified savings.',
+  },
+  alternates: {
+    canonical: '/governiq',
+  },
+}
 
 export default function GovernIQPage() {
   return (
