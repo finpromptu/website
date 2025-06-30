@@ -40,12 +40,10 @@ export default function ContactPage() {
         message: formData.get('body') as string
       }
 
-      if (config.debug) {
-        console.log('Submitting contact form:', data)
-      }
+      console.log('Submitting contact form:', data)
 
       // Check if API endpoint is configured
-      if (config.contactApiUrl.includes('your-api-id')) {
+      if (config.api.contactFormEndpoint.includes('YOUR_API_ID')) {
         // Fallback mode - API not configured yet
         console.warn('Contact API not configured. Using simulation mode.')
         await new Promise(resolve => setTimeout(resolve, 1000)) // Simulate delay
@@ -53,7 +51,7 @@ export default function ContactPage() {
         return
       }
 
-      const response = await fetch(config.contactApiUrl, {
+      const response = await fetch(config.api.contactFormEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -67,9 +65,7 @@ export default function ContactPage() {
         throw new Error(result.error || 'Failed to send message')
       }
 
-      if (config.debug) {
-        console.log('Contact form submitted successfully:', result)
-      }
+      console.log('Contact form submitted successfully:', result)
 
       setIsSubmitted(true)
     } catch (err) {

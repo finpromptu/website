@@ -1,17 +1,24 @@
 // Configuration for Finpromptu website
 
 export const config = {
-  // Contact Form API endpoint
-  // Update this after deploying the AWS Lambda function
-  contactApiUrl: process.env.NEXT_PUBLIC_CONTACT_API_URL || 'https://your-api-id.execute-api.us-east-1.amazonaws.com/prod/contact',
+  // API Configuration
+  api: {
+    // Replace YOUR_API_ID with your actual API Gateway ID
+    contactFormEndpoint: process.env.NODE_ENV === 'production' 
+      ? 'https://qwg4qpgakb.execute-api.us-east-1.amazonaws.com/prod/contact'
+      : 'https://qwg4qpgakb.execute-api.us-east-1.amazonaws.com/prod/contact',
+  },
   
-  // Enable debug logging
-  debug: process.env.NEXT_PUBLIC_DEBUG === 'true',
+  // Feature flags
+  features: {
+    enableContactForm: true,
+    enableAnalytics: false,
+  },
   
   // Contact information
   contact: {
     phone: '(512) 222-7896',
     email: 'info@finpromptu.com',
-    businessHours: '8:00 AM - 5:00 PM CST'
-  }
+    hours: '8:00 AM - 5:00 PM CST',
+  },
 } 
