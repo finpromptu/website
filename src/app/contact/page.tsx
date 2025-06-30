@@ -46,6 +46,7 @@ export default function ContactPage() {
       }
 
       console.log('Submitting contact form:', data)
+      console.log('API endpoint:', config.api.contactFormEndpoint)
 
       // Check if API endpoint is configured
       if (config.api.contactFormEndpoint.includes('YOUR_API_ID')) {
@@ -56,6 +57,7 @@ export default function ContactPage() {
         return
       }
 
+      console.log('Making API request...')
       const response = await fetch(config.api.contactFormEndpoint, {
         method: 'POST',
         headers: {
@@ -64,10 +66,25 @@ export default function ContactPage() {
         body: JSON.stringify(data)
       })
 
-      const result = await response.json()
+      console.log('Response status:', response.status)
+      console.log('Response ok:', response.ok)
+      console.log('Response headers:', Object.fromEntries(response.headers.entries()))
+
+      const responseText = await response.text()
+      console.log('Raw response text:', responseText)
+
+      let result
+      try {
+        result = JSON.parse(responseText)
+        console.log('Parsed response:', result)
+      } catch (parseError) {
+        console.error('JSON parse error:', parseError)
+        throw new Error('Invalid response format from server')
+      }
 
       if (!response.ok) {
-        throw new Error(result.error || 'Failed to send message')
+        console.error('Response not ok:', response.status, result)
+        throw new Error(result.error || result.message || 'Failed to send message')
       }
 
       console.log('Contact form submitted successfully:', result)
