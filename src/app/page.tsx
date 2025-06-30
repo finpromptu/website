@@ -6,7 +6,7 @@ import { ArrowRight, Cloud, Zap, Shield, TrendingUp, Users, Bot } from 'lucide-r
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white page-transition">
       <Navigation />
       
       {/* Hero Section */}
@@ -24,13 +24,13 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               href="/governiq"
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8"
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 btn-enhanced"
             >
               Explore GovernIQ <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
             <Link 
               href="/ai-services"
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-gray-300 bg-white text-gray-900 hover:bg-gray-50 h-11 rounded-md px-8"
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-gray-300 bg-white text-gray-900 hover:bg-gray-50 h-11 rounded-md px-8 btn-enhanced"
             >
               AI Integration Services
             </Link>
@@ -44,7 +44,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-12">
             
             {/* GovernIQ */}
-            <Card className="p-8 hover:shadow-lg transition-shadow">
+            <Card className="p-8 card-hover">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Cloud className="h-8 w-8 text-blue-600" />
@@ -79,7 +79,7 @@ export default function HomePage() {
             </Card>
 
             {/* AI Services */}
-            <Card className="p-8 hover:shadow-lg transition-shadow">
+            <Card className="p-8 card-hover">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Bot className="h-8 w-8 text-purple-600" />

@@ -105,7 +105,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white page-transition">
       <Navigation />
       
       {/* Hero Section */}
@@ -170,6 +170,7 @@ export default function ContactPage() {
                         id="name"
                         name="name"
                         placeholder="John Doe"
+                        className="input-enhanced"
                         required
                       />
                     </div>
@@ -183,6 +184,7 @@ export default function ContactPage() {
                         name="email"
                         type="email"
                         placeholder="john@company.com"
+                        className="input-enhanced"
                         required
                       />
                     </div>
@@ -196,6 +198,7 @@ export default function ContactPage() {
                       id="company"
                       name="company"
                       placeholder="Your Company"
+                      className="input-enhanced"
                       required
                     />
                   </div>
@@ -208,7 +211,7 @@ export default function ContactPage() {
                       id="service"
                       name="service"
                       required
-                      className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                      className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 input-enhanced"
                     >
                       <option value="">Select a service</option>
                       <option value="governiq">GovernIQ - Cloud Governance</option>
@@ -227,6 +230,7 @@ export default function ContactPage() {
                       name="body"
                       placeholder="Tell us about your needs and how we can help..."
                       rows={4}
+                      className="input-enhanced"
                       required
                     />
                   </div>
@@ -234,7 +238,7 @@ export default function ContactPage() {
                   <div className="grid md:grid-cols-2 gap-4">
                     <Button 
                       type="submit" 
-                      className="w-full"
+                      className={`w-full btn-enhanced ${isSubmitting ? 'btn-loading' : ''}`}
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? 'Sending...' : 'Send Message'}
