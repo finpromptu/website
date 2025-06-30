@@ -45,6 +45,10 @@ coverage/
 
 # Temporary files
 tmp/
-temp/lambda/contact-form-deployment.zip
-lambda/contact-form.zip
-lambda/contact-form/package-lock.json
+temp/
+
+# AWS deployment packages
+lambda/*.zip
+
+# One-time setup scripts (if recreated)
+*-setup.sh
