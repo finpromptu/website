@@ -3,50 +3,34 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Link from 'next/link'
 import { ArrowRight, Cloud, Zap, Shield, TrendingUp, Users, Bot } from 'lucide-react'
-import { Metadata } from 'next'
-
-// Performance optimization: Export metadata separately
-export const metadata: Metadata = {
-  title: 'Cloud Governance & AI Integration Solutions',
-  description: 'Reduce cloud costs by 15-30% with GovernIQ, or transform your business with AI automation. Expert solutions for modern companies.',
-}
-
-// Memoized icon components for better performance
-const IconCloud = () => <Cloud className="h-8 w-8 text-blue-600" />
-const IconBot = () => <Bot className="h-8 w-8 text-purple-600" />
-const IconTrendingUp = () => <TrendingUp className="h-6 w-6 text-blue-600" />
-const IconShield = () => <Shield className="h-6 w-6 text-green-600" />
-const IconUsers = () => <Users className="h-6 w-6 text-purple-600" />
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white page-transition">
       <Navigation />
       
-      {/* Hero Section - Above the fold content */}
+      {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
             Cloud Governance &
             <br />
             <span className="text-blue-600">AI Integration</span>
           </h1>
-          <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
             Reduce cloud waste by 15-30% with GovernIQ, or transform your business with AI automation. 
             Two powerful solutions for modern companies.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
-              href="/governiq/"
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 h-11 px-8"
-              prefetch={false}
+              href="/governiq"
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 btn-enhanced"
             >
               Explore GovernIQ <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
             <Link 
-              href="/ai-services/"
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-gray-300 bg-white text-gray-900 hover:bg-gray-50 h-11 px-8"
-              prefetch={false}
+              href="/ai-services"
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-gray-300 bg-white text-gray-900 hover:bg-gray-50 h-11 rounded-md px-8 btn-enhanced"
             >
               AI Integration Services
             </Link>
@@ -60,10 +44,10 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-12">
             
             {/* GovernIQ */}
-            <Card className="p-8 transition-transform hover:scale-105">
+            <Card className="p-8 card-hover">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <IconCloud />
+                  <Cloud className="h-8 w-8 text-blue-600" />
                 </div>
                 <CardTitle className="text-3xl">GovernIQ</CardTitle>
                 <CardDescription className="text-lg">
@@ -85,9 +69,8 @@ export default function HomePage() {
                 </div>
                 <div className="pt-4">
                   <Link 
-                    href="/governiq/"
-                    className="w-full inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 h-10 px-4 py-2"
-                    prefetch={false}
+                    href="/governiq"
+                    className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
                   >
                     Learn More
                   </Link>
@@ -96,10 +79,10 @@ export default function HomePage() {
             </Card>
 
             {/* AI Services */}
-            <Card className="p-8 transition-transform hover:scale-105">
+            <Card className="p-8 card-hover">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <IconBot />
+                  <Bot className="h-8 w-8 text-purple-600" />
                 </div>
                 <CardTitle className="text-3xl">AI Integration</CardTitle>
                 <CardDescription className="text-lg">
@@ -121,9 +104,8 @@ export default function HomePage() {
                 </div>
                 <div className="pt-4">
                   <Link 
-                    href="/ai-services/"
-                    className="w-full inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 h-10 px-4 py-2"
-                    prefetch={false}
+                    href="/ai-services"
+                    className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
                   >
                     Learn More
                   </Link>
@@ -141,27 +123,27 @@ export default function HomePage() {
             Why Choose Finpromptu?
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-6">
+            <div>
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <IconTrendingUp />
+                <TrendingUp className="h-6 w-6 text-blue-600" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Proven ROI</h3>
               <p className="text-gray-600">
                 Demonstrate measurable results within 30 days of implementation
               </p>
             </div>
-            <div className="p-6">
+            <div>
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <IconShield />
+                <Shield className="h-6 w-6 text-green-600" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Enterprise Security</h3>
               <p className="text-gray-600">
                 SOC2 compliant with enterprise-grade security and data protection
               </p>
             </div>
-            <div className="p-6">
+            <div>
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <IconUsers />
+                <Users className="h-6 w-6 text-purple-600" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Expert Support</h3>
               <p className="text-gray-600">
@@ -183,16 +165,14 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
-              href="/contact/"
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-white text-blue-600 hover:bg-gray-50 h-11 px-8"
-              prefetch={false}
+              href="/contact"
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-11 rounded-md px-8"
             >
               Schedule a Demo
             </Link>
             <Link 
-              href="/about/"
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-white bg-transparent text-white hover:bg-white hover:text-blue-600 h-11 px-8"
-              prefetch={false}
+              href="/about" 
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-white bg-white text-blue-600 hover:bg-white hover:text-blue-700 h-11 rounded-md px-8"
             >
               Learn More About Us
             </Link>
@@ -213,22 +193,22 @@ export default function HomePage() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Products</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="/governiq/" className="hover:text-white transition-colors" prefetch={false}>GovernIQ</Link></li>
-                <li><Link href="/ai-services/" className="hover:text-white transition-colors" prefetch={false}>AI Services</Link></li>
+                <li><Link href="/governiq" className="hover:text-white">GovernIQ</Link></li>
+                <li><Link href="/ai-services" className="hover:text-white">AI Services</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="text-lg font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="/about/" className="hover:text-white transition-colors" prefetch={false}>About</Link></li>
-                <li><Link href="/contact/" className="hover:text-white transition-colors" prefetch={false}>Contact</Link></li>
+                <li><Link href="/about" className="hover:text-white">About</Link></li>
+                <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="text-lg font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="/contact/" className="hover:text-white transition-colors" prefetch={false}>Get Help</Link></li>
-                <li><Link href="/contact/" className="hover:text-white transition-colors" prefetch={false}>Request Demo</Link></li>
+                <li><Link href="/contact" className="hover:text-white">Get Help</Link></li>
+                <li><Link href="/contact" className="hover:text-white">Request Demo</Link></li>
               </ul>
             </div>
           </div>

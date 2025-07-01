@@ -49,31 +49,7 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      // Optimize font sizes to reduce bundle
-      fontSize: {
-        'xs': '0.75rem',
-        'sm': '0.875rem',
-        'base': '1rem',
-        'lg': '1.125rem',
-        'xl': '1.25rem',
-        '2xl': '1.5rem',
-        '3xl': '1.875rem',
-        '4xl': '2.25rem',
-        '5xl': '3rem',
-        '6xl': '3.75rem',
-      },
     },
-  },
-  
-  // Optimize for smaller bundle size
-  corePlugins: {
-    // Disable unused plugins to reduce bundle size
-    container: false,
-    float: false,
-    clear: false,
-    skew: false,
-    caretColor: false,
-    sepia: false,
   },
   
   plugins: [],

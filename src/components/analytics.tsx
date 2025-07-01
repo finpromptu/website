@@ -9,7 +9,6 @@ const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX' // Replac
 declare global {
   interface Window {
     gtag: (...args: any[]) => void
-    dataLayer: any[]
   }
 }
 
@@ -38,59 +37,53 @@ export const event = ({ action, category, label, value }: {
   }
 }
 
-// Google Analytics component with optimized loading
+// Google Analytics component
 export function GoogleAnalytics() {
   const isProduction = process.env.NODE_ENV === 'production'
   
-  // Only load GA in production and if ID is configured
+  // Only load GA in production
   if (!isProduction || GA_TRACKING_ID === 'G-XXXXXXXXXX') {
     return null
   }
 
   return (
     <>
-      {/* Load GA script with worker strategy for better performance */}
       <Script
+        strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-        strategy="worker"
-        onLoad={() => {
-          // Initialize gtag only after script loads
-          window.dataLayer = window.dataLayer || [];
-          function gtag(...args: any[]) {
-            window.dataLayer.push(args);
-          }
-          window.gtag = gtag;
-          gtag('js', new Date());
-          gtag('config', GA_TRACKING_ID, {
-            page_path: window.location.pathname,
-            anonymize_ip: true,
-            send_page_view: false, // We'll handle this manually
-          });
-        }}
-        onError={(e) => {
-          console.warn('Google Analytics failed to load:', e);
+      />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+              anonymize_ip: true,
+            });
+          `,
         }}
       />
     </>
   )
 }
 
-// Optimized hook for tracking page views
+// Hook for tracking page views in Next.js
 export function usePageTracking() {
   useEffect(() => {
-    // Only track in production
-    if (process.env.NODE_ENV !== 'production') return
-
     const handleRouteChange = (url: string) => {
-      // Add delay to ensure gtag is available
-      setTimeout(() => pageview(url), 100)
+      pageview(url)
     }
 
     // Track initial page view
-    setTimeout(() => pageview(window.location.pathname), 100)
+    pageview(window.location.pathname)
 
-    // For Next.js app router, we'd need to implement custom route tracking
-    // This would require additional setup with usePathname hook
+    // For Next.js router, you would add:
+    // router.events.on('routeChangeComplete', handleRouteChange)
+    // return () => router.events.off('routeChangeComplete', handleRouteChange)
     
   }, [])
 } 

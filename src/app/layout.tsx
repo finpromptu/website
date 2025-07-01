@@ -1,16 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { GoogleAnalytics } from '@/components/analytics'
-import { ServiceWorkerRegistration } from '@/components/service-worker'
 import './globals.css'
 
-// Optimize font loading
-const inter = Inter({ 
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
-  variable: '--font-inter',
-})
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
@@ -84,22 +77,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#2563eb" />
-        
-        {/* Preload critical resources */}
-        <link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* DNS prefetch for external resources */}
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        
-        {/* PWA manifest */}
-        <link rel="manifest" href="/manifest.json" />
-        
         <link rel="canonical" href={process.env.NODE_ENV === 'production' ? 'https://finpromptu.com' : 'https://dev.finpromptu.com'} />
         
         {/* Structured Data */}
@@ -130,9 +111,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} font-sans antialiased`}>
+      <body className={inter.className}>
         <GoogleAnalytics />
-        <ServiceWorkerRegistration />
         {children}
       </body>
     </html>
