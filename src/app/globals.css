@@ -59,6 +59,41 @@
   }
 }
 
+/* Optimized performance styles */
+
+/* Critical animations only */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Essential focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Essential loading state */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
 /* Custom CSS for enhanced UX */
 
 /* Smooth page transitions */
@@ -147,12 +182,6 @@
   animation: spin 1s ease-in-out infinite;
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
@@ -198,17 +227,6 @@ html {
   
   .btn-enhanced:active {
     transform: scale(0.95);
-  }
-}
-
-/* Reduced motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
   }
 }
 
