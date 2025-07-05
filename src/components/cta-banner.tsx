@@ -46,7 +46,7 @@ export default function CTABanner() {
             Chatbots that engage. Workflows that save time.
           </p>
           <p className="text-2xl md:text-3xl mt-2" role="img" aria-label="Let's automate your growth">
-            <span className="mr-2">👉</span> Let's automate your growth.
+            <span className="mr-2">👉</span> Let&apos;s automate your growth.
           </p>
         </div>
         <Link
