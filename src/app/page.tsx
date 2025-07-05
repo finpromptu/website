@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Link from 'next/link'
 import { ArrowRight, Cloud, Zap, Shield, TrendingUp, Users, Bot } from 'lucide-react'
+import CTABanner from '@/components/cta-banner'
 
 export default function HomePage() {
   return (
@@ -217,6 +218,7 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+      <CTABanner />
     </div>
   )
 }
