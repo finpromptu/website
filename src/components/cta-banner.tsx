@@ -35,7 +35,7 @@ export default function CTABanner() {
             Chatbot and Workflow Automation Services for SMBs
           </h2>
           <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">
-            We help small and medium-sized businesses enhance customer engagement and streamline operations with custom chatbot and workflow automation solutions. Our chatbots handle common customer inquiries, lead capture, and support requests 24/7, reducing workload and improving response times. Our workflow automation services integrate your existing tools to eliminate repetitive tasks, ensure consistency, and boost productivity. Whether you're looking to improve customer experience or optimize internal processes, we provide tailored solutions that grow with your business.
+            We help small and medium-sized businesses enhance customer engagement and streamline operations with custom chatbot and workflow automation solutions. Our chatbots handle common customer inquiries, lead capture, and support requests 24/7, reducing workload and improving response times. Our workflow automation services integrate your existing tools to eliminate repetitive tasks, ensure consistency, and boost productivity. Whether you&apos;re looking to improve customer experience or optimize internal processes, we provide tailored solutions that grow with your business.
           </p>
         </div>
         <div className="flex flex-col md:flex-row items-center gap-3 md:gap-4">
