@@ -16,6 +16,15 @@ Modern, Apple-style website for Finpromptu showcasing two main offerings:
 - **Contact Forms**: AWS Lambda + SES for email processing
 - **Styling**: Apple-inspired design with clean typography and modern UI
 
+## Git Workflow
+
+- **IMPORTANT**: All development work should be done on the `dev` branch
+- The `master` branch is for production releases only
+- Never merge to `master` without explicit user consent
+- GitHub Actions automatically deploy:
+  - `dev` branch → dev.finpromptu.com
+  - `master` branch → finpromptu.com
+
 ## Development Commands
 
 ### Local Development
