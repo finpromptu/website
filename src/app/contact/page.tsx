@@ -15,15 +15,15 @@ import {
   Clock,
   MessageSquare,
   Building,
-  Bot,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  Cloud
 } from 'lucide-react'
 
 // SEO Note: This page needs metadata in a parent layout or separate metadata file
 // Recommended metadata:
-// title: 'Contact Finpromptu | Cloud Governance & AI Integration Experts'
-// description: 'Get in touch with Finpromptu for cloud governance solutions or AI integration services. Call (512) 222-7896 or request a demo. Response within 24 hours.'
+// title: 'Contact Finpromptu | Cloud Governance & Cost Optimization Experts'
+// description: 'Get in touch with Finpromptu for cloud governance solutions and cost optimization. Call (512) 222-7896 or request a demo. Response within 24 hours.'
 
 export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -116,8 +116,8 @@ export default function ContactPage() {
               Get in <span className="text-blue-600">Touch</span>
             </h1>
             <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-              Ready to optimize your cloud infrastructure or automate your business with AI? 
-              Let&apos;s discuss how we can help you achieve your goals.
+              Ready to optimize your cloud infrastructure and reduce costs? 
+              Let&apos;s discuss how GovernIQ can help you achieve your goals.
             </p>
           </div>
 
@@ -215,7 +215,7 @@ export default function ContactPage() {
                     >
                       <option value="">Select a service</option>
                       <option value="governiq">GovernIQ - Cloud Governance</option>
-                      <option value="ai-services">AI Integration Services</option>
+                      <option value="cost-optimization">Cost Optimization Assessment</option>
                       <option value="msp-partnership">MSP Partnership</option>
                       <option value="general">General Inquiry</option>
                     </select>
@@ -228,7 +228,7 @@ export default function ContactPage() {
                     <Textarea
                       id="message"
                       name="body"
-                      placeholder="Tell us about your needs and how we can help..."
+                      placeholder="Tell us about your cloud infrastructure and how we can help optimize costs..."
                       rows={4}
                       className="input-enhanced"
                       required
@@ -292,7 +292,7 @@ export default function ContactPage() {
                 <CardHeader>
                   <CardTitle className="text-xl">Quick Links</CardTitle>
                   <CardDescription>
-                    Learn more about our specific offerings
+                    Learn more about our cloud governance solutions
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -303,17 +303,17 @@ export default function ContactPage() {
                       <p className="text-sm text-gray-600">Schedule a demo of our cloud governance platform</p>
                     </div>
                   </Link>
-                  <Link href="/ai-services" className="flex items-center space-x-3 hover:bg-gray-50 p-2 rounded-lg transition-colors">
-                    <Bot className="h-5 w-5 text-purple-600" />
+                  <Link href="/industries" className="flex items-center space-x-3 hover:bg-gray-50 p-2 rounded-lg transition-colors">
+                    <Cloud className="h-5 w-5 text-green-600" />
                     <div>
-                      <p className="font-medium hover:text-purple-600">AI Assessment</p>
-                      <p className="text-sm text-gray-600">Free AI readiness assessment for your business</p>
+                      <p className="font-medium hover:text-green-600">Industry Solutions</p>
+                      <p className="text-sm text-gray-600">See how we help different industries optimize costs</p>
                     </div>
                   </Link>
                   <Link href="/contact" className="flex items-center space-x-3 hover:bg-gray-50 p-2 rounded-lg transition-colors">
-                    <MessageSquare className="h-5 w-5 text-green-600" />
+                    <MessageSquare className="h-5 w-5 text-purple-600" />
                     <div>
-                      <p className="font-medium hover:text-green-600">MSP Partnership</p>
+                      <p className="font-medium hover:text-purple-600">MSP Partnership</p>
                       <p className="text-sm text-gray-600">Learn about our partner program benefits</p>
                     </div>
                   </Link>
@@ -342,7 +342,7 @@ export default function ContactPage() {
               Frequently Asked Questions
             </h2>
             <p className="text-xl text-gray-600">
-              Quick answers to common questions
+              Quick answers to common questions about cloud governance
             </p>
           </div>
 
@@ -361,12 +361,12 @@ export default function ContactPage() {
 
             <Card className="p-6">
               <CardHeader>
-                <CardTitle className="text-lg">What&apos;s included in the AI Integration services?</CardTitle>
+                <CardTitle className="text-lg">What cloud platforms does GovernIQ support?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Our AI services include consultation, implementation, training, and ongoing support. 
-                  We customize each solution based on your specific business needs and industry requirements.
+                  GovernIQ supports AWS, Azure, and Google Cloud Platform. We provide unified 
+                  governance and cost optimization across all major cloud providers.
                 </p>
               </CardContent>
             </Card>
@@ -377,8 +377,8 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Yes! We offer free AI readiness assessments and GovernIQ pilots to help you understand 
-                  the potential value before making a commitment.
+                  Yes! We offer free cloud cost assessments and GovernIQ pilots to help you understand 
+                  the potential savings before making a commitment.
                 </p>
               </CardContent>
             </Card>
